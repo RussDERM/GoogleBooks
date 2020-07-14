@@ -1,7 +1,11 @@
 import React, { Component } from "react";
-import { Container } from "../components/Grid";
+import Container from "react-bootstrap/Container";
 import API from "../utils/API";
-import SavedResult from "../components/SavedResult"
+import ResultsBox from "../components/ResultsBox/ResultsBox";
+import "../components/ResultsBox/ResultsBox.css";
+
+
+
 
 class SaveBook extends Component {
     state = {
@@ -22,10 +26,11 @@ class SaveBook extends Component {
     render() {
         return (
             <Container fluid className="container">
-                
-                <Container>
-                    <SavedResult savedBooks={this.state.savedBooks} handleDeleteButton={this.handleDeleteButton} />
-                </Container>
+                <ResultsBox className="resultsBox" 
+                    books={this.state.savedBooks}
+                    handleSavedButton={this.handleSavedButton}
+               />
+
             </Container>
         )
     }

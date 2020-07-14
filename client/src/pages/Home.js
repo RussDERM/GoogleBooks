@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Jumbotron from "../components/Jumbotron";
-import { Container, Row, Col } from "../components/Grid";
-import SearchInput from "../components/SearchInput";
-import SearchResult from "../components/SearchResult";
+import Container from "react-bootstrap/Container";
+import SearchBox from "../components/SearchBox/SearchBox";
+import ResultsBox from "../components/ResultsBox/ResultsBox";
+// * Styling
+import "./pageStyle.css";
+
+
 
 
 
@@ -66,25 +69,23 @@ class SearchBooks extends Component {
     }
     render() {
         return (
-            <Container fluid>
-                <Jumbotron>
-                    <h1 className="jumbo">These days - Reading is a Superpower!</h1>
-                </Jumbotron>
-                <Container>
-                    <Row>
-                        <Col size="12">
-                            <SearchInput
-                                handleFormSubmit={this.handleFormSubmit}
-                                handleInputChange={this.handleInputChange}
-                            />
-                        </Col>
-                    </Row>
-                </Container>
-                <br></br>
-                <Container>
-                    <SearchResult books={this.state.books} handleSavedButton={this.handleSavedButton} />
-                </Container>
-            </Container>
+            <>
+        <Container className="box">
+          <div className="searchContainer">
+            <SearchBox
+              className="searchBox"
+              handleFormSubmit={this.handleFormSubmit}
+              handleInputChange={this.handleInputChange}
+            />
+          </div>
+        </Container>
+        <Container>
+          <ResultsBox className="resultsBox" 
+          books={this.state.books}
+          handleSavedButton={this.handleSavedButton}
+          />
+        </Container>
+      </>
         )
     }
 
