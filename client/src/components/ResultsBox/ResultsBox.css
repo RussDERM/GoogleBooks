@@ -4,9 +4,8 @@
   justify-content: center;
 }
 
-.book {
-  font-family: "Montserrat", sans-serif;
-  margin: 10px;
+.bookCard {
+  border-radius: 30px;
 }
 
 .title {

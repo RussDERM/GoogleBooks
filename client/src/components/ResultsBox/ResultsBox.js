@@ -19,6 +19,7 @@ const ResultsBox = props => {
         {props.books.map(book => {
           return (
             <BookCard 
+            className="bookCard"
             key={book.link}
             id={book.id}
             title={book.title}
