@@ -12,6 +12,15 @@ import CardColumns from "react-bootstrap/CardColumns";
 
 
 const ResultsBox = props => {
+
+  const descriptionLength = 200;
+  const truncDescription = string => {
+    if (string.length <= 200) {
+      return string
+    }
+    // else
+    return string.slice(0, descriptionLength) + "..."
+  }
   
   return (
     <div className="resultsBox">
@@ -24,6 +33,7 @@ const ResultsBox = props => {
             id={book.id}
             title={book.title}
             author={book.author}
+            shortDescription={truncDescription(book.description)}
             description={book.description}
             link={book.link}
             image={book.image}

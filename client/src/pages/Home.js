@@ -16,8 +16,18 @@ class SearchBooks extends Component {
         search: "",
         books: [],
         error: "",
-        message: ""
+        message: "",
+        shortDescription: true
     };
+
+    handleDescription = event => {
+        if (this.state.shortDescription === true) {
+            this.setState({shortDescription: false})
+        }
+        // else
+        this.setState({shortDescription: true})
+        console.log(this.state.shortDescription)
+    }
 
     //function to take value of what enter in the search bar
     handleInputChange = event => {
@@ -36,6 +46,7 @@ class SearchBooks extends Component {
                 else {
                     // store response in a array
                     let results = res.data.items
+                    console.log(results)
                     //map through the array 
                     results = results.map(result => {
                         //store each book information in a new object 
